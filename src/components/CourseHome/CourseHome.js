@@ -1,6 +1,7 @@
 import { data } from "autoprefixer";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Course from "./Course";
 
 const CourseHome = () => {
   const [user, setUser] = useState([]);
@@ -11,27 +12,23 @@ const CourseHome = () => {
   }, []);
   return (
     <div>
-      <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 bg-gray-200">
+      <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 ">
         <div className="flex flex-col lg:flex-row gap-x-4">
-          <div className="mb-6 lg:mb-0 lg:w-1/2 lg:pr-5 bg-red-300">
-            <p>Total Number of User - {user.length}</p>
+          <div className="mb-6 lg:mb-0 lg:w-1/2 lg:pr-5 ">
             {user.map((usr) => (
               <Link
-                to={`/course/${user.id}`}
-                className="text-white bg-gray-600 p-3 m-4 rounded block"
+                to={`/coursedetails/${user.id}`}
+                className="text-white bg-orange-800 p-3 m-4 rounded block"
               >
-                {usr.name}
+                {usr.title}
               </Link>
             ))}
           </div>
 
-          <div className="lg:w-full bg-sky-400">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Dignissimos, soluta excepturi! Voluptates placeat dolor architecto
-              asperiores accusamus. Fugit beatae aspernatur error, vitae dolor,
-              laudantium eius ea nemo assumenda libero accusamus!
-            </p>
+          <div className="lg:w-full bg-white grid grid-cols-3 gap-3">
+            {user.map((usr) => (
+              <Link to={`/coursedetails/${user.id}`} ><Course usr={usr}></Course></Link>
+            ))}
           </div>
         </div>
       </div>
