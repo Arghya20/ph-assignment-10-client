@@ -13,9 +13,13 @@ const Header = () => {
             title="Company"
             className="inline-flex items-center"
           >
-            <img className="w-12" src="https://sdmis.dsrvsindia.ac.in/new_layout/course_image.png" alt="" />
+            <img
+              className="w-12"
+              src="https://sdmis.dsrvsindia.ac.in/new_layout/course_image.png"
+              alt=""
+            />
             <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-            Scrate <span className="text-red-600">Learn</span>
+              Scrate <span className="text-red-600">Learn</span>
             </span>
           </Link>
           <ul className="flex items-center hidden space-x-8 lg:flex">
@@ -49,15 +53,31 @@ const Header = () => {
                 FAQ
               </Link>
             </li>
+            <label
+              for="Toggle1"
+              className="inline-flex items-center cursor-pointer"
+            >
+              <span>Light</span>
+              <span className="relative">
+                <input id="Toggle1" type="checkbox" className="hidden peer" />
+                <div className="w-10 h-6 rounded-full shadow-inner bg-gray-300 peer-checked:bg-gray-500"></div>
+                <div className="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto bg-gray-800"></div>
+              </span>
+              <span>Dark</span>
+            </label>
             <li>
-              <a
-                href="/"
-                aria-label="About us"
-                title="About us"
-                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-              >
-                Toggle
-              </a>
+              <div className="flex flex-col items-center justify-center">
+                <div className="flex flex-wrap gap-x-2 gap-y-2">
+                  <div className="relative flex-shrink-0">
+                    <span className="absolute bottom-0 right-0 w-4 h-4 dark:bg-green-600 border rounded-full dark:text-gray-100 dark:border-gray-900"></span>
+                    <img
+                      src="https://source.unsplash.com/50x50/?portrait"
+                      alt=""
+                      className="w-12 h-12 border rounded-full dark:bg-gray-500 dark:border-gray-700"
+                    />
+                  </div>
+                </div>
+              </div>
             </li>
             <li>
               <Link
@@ -103,9 +123,13 @@ const Header = () => {
                         title="Company"
                         className="inline-flex items-center"
                       >
-                       <img  className="w-12" src="https://sdmis.dsrvsindia.ac.in/new_layout/course_image.png" alt="" />
+                        <img
+                          className="w-12"
+                          src="https://sdmis.dsrvsindia.ac.in/new_layout/course_image.png"
+                          alt=""
+                        />
                         <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-                        Scrate <span className="text-red-600">Learn</span>
+                          Scrate <span className="text-red-600">Learn</span>
                         </span>
                       </Link>
                     </div>
@@ -157,15 +181,35 @@ const Header = () => {
                           FAQ
                         </Link>
                       </li>
+                      <label
+                        for="Toggle1"
+                        className="inline-flex items-center cursor-pointer"
+                      >
+                        <span>Light</span>
+                        <span className="relative">
+                          <input
+                            id="Toggle1"
+                            type="checkbox"
+                            className="hidden peer"
+                          />
+                          <div className="w-10 h-6 rounded-full shadow-inner bg-gray-300 peer-checked:bg-gray-500"></div>
+                          <div className="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto bg-gray-800"></div>
+                        </span>
+                        <span>Dark</span>
+                      </label>
                       <li>
-                        <a
-                          href="/"
-                          aria-label="About us"
-                          title="About us"
-                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                        >
-                          Toggle
-                        </a>
+                        <div className="flex flex-col items-center justify-center">
+                          <div className="flex flex-wrap gap-x-2 gap-y-2">
+                            <div className="relative flex-shrink-0">
+                              <span className="absolute bottom-0 right-0 w-4 h-4 dark:bg-green-600 border rounded-full dark:text-gray-100 dark:border-gray-900"></span>
+                              <img
+                                src="https://source.unsplash.com/50x50/?portrait"
+                                alt=""
+                                className="w-12 h-12 border rounded-full dark:bg-gray-500 dark:border-gray-700"
+                              />
+                            </div>
+                          </div>
+                        </div>
                       </li>
                       <li>
                         <Link
