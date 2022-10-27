@@ -18,14 +18,14 @@ const CourseHome = () => {
             {user.map((usr) => (
               <Link
                 to={`/coursedetails/${user.id}`}
-                className="text-white bg-orange-800 p-3 m-4 rounded block"
+                className="text-white bg-orange-800 p-3 m-4 rounded block shadow-lg"
               >
                 {usr.title}
               </Link>
             ))}
           </div>
 
-          <div className="lg:w-full bg-white grid grid-cols-3 gap-3">
+          <div className="lg:w-full bg-white grid grid-cols-1 md:grid-cols-3 mx-auto gap-3">
             {user.map((usr) => (
               <Link to={`/coursedetails/${user.id}`} ><Course usr={usr}></Course></Link>
             ))}
