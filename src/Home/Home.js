@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FaArrowRight } from "react-icons/fa";
 
 const Home = () => {
   return (
@@ -47,8 +48,9 @@ const Home = () => {
             <hr className="mb-5 border-gray-300" />
             <div className="flex items-center space-x-4">
               <Link to="/coursehome">
-                <button className=" px-12 py-3 bg-gray-800 rounded-full text-white hover:bg-gray-900">
-                  Visite Courses
+                <button className=" px-12 py-3 bg-gray-800 rounded-full text-white hover:bg-gray-900 flex items-center gap-x-3 ">
+                  <span>Visite Courses</span>
+                  <FaArrowRight></FaArrowRight>
                 </button>
               </Link>
             </div>

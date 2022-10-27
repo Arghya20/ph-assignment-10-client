@@ -9,6 +9,7 @@ import Login from "./components/Login/Login";
 import SignUp from "./components/SignUp/SignUp";
 import CourseHome from "./components/CourseHome/CourseHome";
 import Home from "./Home/Home";
+import Course from "./components/CourseHome/Course";
 
 function App() {
   const router = createBrowserRouter([
@@ -18,7 +19,7 @@ function App() {
       children: [
         {
           path: "/",
-          element: <Home></Home>
+          element: <Home></Home>,
         },
         {
           path: "/coursehome",
@@ -39,6 +40,10 @@ function App() {
         {
           path: "/signup",
           element: <SignUp></SignUp>,
+        },
+        {
+          path: "/course/:id",
+          element: <Course></Course>,
         },
       ],
     },
