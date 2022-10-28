@@ -37,12 +37,7 @@ const Header = () => {
             </span>
           </Link>
           <ul className="flex items-center hidden space-x-8 lg:flex">
-            <li>
-              <span>Hello 👋</span>
-              <span className="font-bold ml-2 bg-green-400 px-2 py-1 rounded-full">
-                {user?.displayName}
-              </span>
-            </li>
+            
             <li>
               <Link
                 to="/coursehome"
