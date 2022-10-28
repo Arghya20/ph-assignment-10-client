@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Header = () => {
+  const [isDark, setIsDark] = useState(false);
+  const handelToggle = (event) => {
+    setIsDark(event.target.checked);
+  };
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <div className="bg-gray-100">
@@ -53,18 +57,24 @@ const Header = () => {
                 FAQ
               </Link>
             </li>
+
             <label
               for="Toggle1"
               className="inline-flex items-center cursor-pointer"
             >
-              <span>Light</span>
               <span className="relative">
-                <input id="Toggle1" type="checkbox" className="hidden peer" />
+                <input
+                  onClick={handelToggle}
+                  id="Toggle1"
+                  type="checkbox"
+                  className="hidden peer"
+                />
                 <div className="w-10 h-6 rounded-full shadow-inner bg-white border border-gray-500 peer-checked:bg-gray-400"></div>
                 <div className="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto bg-gray-800"></div>
               </span>
-              <span>Dark</span>
+              <span className="ml-1">{isDark ? "Dark" : "Light"}</span>
             </label>
+
             <li>
               <div className="flex flex-col items-center justify-center">
                 <div className="flex flex-wrap gap-x-2 gap-y-2">
@@ -181,13 +191,14 @@ const Header = () => {
                           FAQ
                         </Link>
                       </li>
+
                       <label
                         for="Toggle2"
                         className="inline-flex items-center cursor-pointer"
                       >
-                        <span>Light</span>
                         <span className="relative">
                           <input
+                            onClick={handelToggle}
                             id="Toggle2"
                             type="checkbox"
                             className="hidden peer"
@@ -195,8 +206,11 @@ const Header = () => {
                           <div className="w-10 h-6 rounded-full shadow-inner bg-white border border-gray-500 peer-checked:bg-gray-400"></div>
                           <div className="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto bg-gray-800"></div>
                         </span>
-                        <span>Dark</span>
+                        <span className="ml-1">
+                          {isDark ? "Dark" : "Light"}
+                        </span>
                       </label>
+
                       <li>
                         <div className="flex flex-col items-center justify-center">
                           <div className="flex flex-wrap gap-x-2 gap-y-2">

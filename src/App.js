@@ -11,6 +11,7 @@ import CourseHome from "./components/CourseHome/CourseHome";
 import Home from "./Home/Home";
 import Course from "./components/CourseHome/Course";
 import CourseDetails from "./components/CourseHome/CourseDetails";
+import PremiumAccess from "./components/PremiumAccess/PremiumAccess";
 
 function App() {
   const router = createBrowserRouter([
@@ -47,6 +48,10 @@ function App() {
           element: <CourseDetails></CourseDetails>,
           loader: ({ params }) =>
             fetch(`http://localhost:5000/coursedetails/${params.id}`),
+        },
+        {
+          path: "/premiumAccess",
+          element: <PremiumAccess></PremiumAccess>,
         },
       ],
     },

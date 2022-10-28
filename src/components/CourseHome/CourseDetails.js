@@ -5,7 +5,9 @@ import {
   FaRegStar,
   FaUserGraduate,
 } from "react-icons/fa";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
+import Pdf from "react-to-pdf";
+const ref = React.createRef();
 
 const CourseDetails = () => {
   const coursedetails = useLoaderData();
@@ -13,15 +15,23 @@ const CourseDetails = () => {
 
   return (
     <div className="m-2">
-      <div className=" mx-auto mt-6 max-w-3xl p-6 rounded-md shadow-lg bg-gray-100 text-black mb-4 border border-gray-200  hover:border hover:border-gray-300">
+      <div
+        className=" mx-auto mt-6 max-w-3xl p-6 rounded-md shadow-lg bg-gray-100 text-black mb-4 border border-gray-200  hover:border hover:border-gray-300"
+        ref={ref}
+      >
         <div className="flex justify-center mb-5">
-          <button
-            type="button"
-            className="flex items-center gap-x-2 text-white px-8 py-3 font-semibold rounded-full bg-green-500 hover:bg-green-600 "
-          >
-            <span>Download Course Details</span>
-            <FaFileDownload />
-          </button>
+          <Pdf targetRef={ref} filename="Course-Details.pdf">
+            {({ toPdf }) => (
+              <button
+                onClick={toPdf}
+                type="button"
+                className="flex items-center gap-x-2 text-white px-8 py-3 font-semibold rounded-full bg-green-500 hover:bg-green-600 "
+              >
+                <span>Download Course Details</span>
+                <FaFileDownload />
+              </button>
+            )}
+          </Pdf>
         </div>
 
         <img className="rounded shadow-lg mx-auto" src={img} />
@@ -49,13 +59,15 @@ const CourseDetails = () => {
           </div>
         </div>
         <div className="flex justify-center mt-6 mb-8">
-          <button
-            type="button"
-            className="flex items-center gap-x-2  px-8 py-3 font-semibold rounded-full bg-yellow-500 hover:bg-yellow-600 shadow-lg border border-gray-400"
-          >
-            <span>Get Premium Access</span>
-            <FaCrown />
-          </button>
+          <Link to="/premiumAccess">
+            <button
+              type="button"
+              className="flex items-center gap-x-2  px-8 py-3 font-semibold rounded-full bg-yellow-500 hover:bg-yellow-600 shadow-lg border border-gray-400"
+            >
+              <span>Get Premium Access</span>
+              <FaCrown />
+            </button>
+          </Link>
         </div>
       </div>
     </div>
