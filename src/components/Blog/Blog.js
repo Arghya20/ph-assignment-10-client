@@ -3,7 +3,7 @@ import React from "react";
 const Blog = () => {
   return (
     <div>
-      <section className="dark:bg-gray-800 dark:text-gray-100">
+      <section >
         <div className="container flex flex-col justify-center p-4 mx-auto md:p-8">
           <h2 className="mb-12 text-4xl font-bold leading-none text-center sm:text-5xl">
             Blog
@@ -11,7 +11,7 @@ const Blog = () => {
           <div className="grid gap-10 md:gap-8 sm:p-3 md:grid-cols-2 lg:px-12 xl:px-32">
             <div>
               <h3 className="font-semibold">Q1. What is cors ?</h3>
-              <p className="mt-1 dark:text-gray-400">
+              <p className="mt-1     text-gray-500">
                 Ans: Cross-origin resource sharing (CORS) is a browser mechanism
                 which enables controlled access to resources located outside of
                 a given domain. It extends and adds flexibility to the
@@ -26,7 +26,7 @@ const Blog = () => {
                 Q2. Why are you using firebase? What other options do you have
                 to implement authentication?
               </h3>
-              <p className="mt-1 dark:text-gray-400">
+              <p className="mt-1     text-gray-500">
                 Ans: The Firebase Realtime Database lets you build rich,
                 collaborative applications by allowing secure access to the
                 database directly from client-side code. Data is persisted
@@ -42,7 +42,7 @@ const Blog = () => {
               <h3 className="font-semibold">
                 Q3. How does the private route work ?
               </h3>
-              <p className="mt-1 dark:text-gray-400">
+              <p className="mt-1     text-gray-500">
                 Ans: The react private route component renders child components
                 (children) if the user is logged in. If not logged in the user
                 is redirected to the /login page with the return url passed in
@@ -53,7 +53,7 @@ const Blog = () => {
               <h3 className="font-semibold">
                 Q4. What is Node? How does Node work?
               </h3>
-              <p className="mt-1 dark:text-gray-400">
+              <p className="mt-1     text-gray-500">
                 Ans: Node.js is an open-source, cross-platform, back-end
                 JavaScript runtime environment that runs on a JavaScript Engine
                 and executes JavaScript code outside a web browser, which was

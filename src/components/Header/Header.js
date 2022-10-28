@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { FaYenSign } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 
@@ -31,7 +32,10 @@ const Header = () => {
           </Link>
           <ul className="flex items-center hidden space-x-8 lg:flex">
             <li>
-              {user?.displayName}
+              <span>Hello 👋</span>
+              <span className="font-bold ml-2 bg-green-400 px-2 py-1 rounded-full">
+                {user?.displayName}
+              </span>
             </li>
             <li>
               <Link
@@ -85,11 +89,13 @@ const Header = () => {
               <div className="flex flex-col items-center justify-center">
                 <div className="flex flex-wrap gap-x-2 gap-y-2">
                   <div className="relative flex-shrink-0">
-                    <img
-                      src="https://randykepple.com/wp19/wp-content/uploads/2021/12/avatar_icon.png"
-                      alt=""
+                    {user.photoURL ? <img
+                      src={user?.photoURL}
+                      alt="user"
                       className="w-12 h-12 border rounded-full dark:bg-gray-500 dark:border-gray-700"
-                    />
+                    /> :
+                    <FaYenSign/>
+                    }
                   </div>
                 </div>
               </div>

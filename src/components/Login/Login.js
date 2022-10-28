@@ -1,7 +1,19 @@
-import React from "react";
+import { GoogleAuthProvider } from "firebase/auth";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import AuthProvider, { AuthContext } from "../../context/AuthProvider/AuthProvider";
 
 const Login = () => {
+  const { providerLogin } = useContext(AuthContext);
+  const googleProvider = new GoogleAuthProvider();
+  const handelGoogleLogin = () => {
+    providerLogin(googleProvider)
+    .then(result =>  {
+       const user = result.user;
+       console.log(user);
+    })
+    .catch(error => console.log(error.massage))
+  };
   return (
     <div className="flex justify-center">
       <div className="w-full max-w-md p-8 space-y-3 rounded-xl  border border-gray-400 mt-20 shadow-xl bg-gray-100">
@@ -39,7 +51,7 @@ const Login = () => {
             />
           </div>
           <button className="block w-full p-3 text-center rounded-full  bg-black text-white">
-            Sign in
+            Log In
           </button>
         </form>
         <div className="flex items-center pt-4 space-x-1">
@@ -49,6 +61,7 @@ const Login = () => {
         </div>
         <div className="flex justify-center space-x-4">
           <button
+            onClick={handelGoogleLogin}
             aria-label="Log in with Google"
             className="p-3 rounded-full bg-white shadow"
           >
