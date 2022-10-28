@@ -1,14 +1,18 @@
 import { GoogleAuthProvider } from "firebase/auth";
 import React, { useContext, useState } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 
 const Login = () => {
+  const location = useLocation();
   const [error, setError] = useState("");
 
   const navigate = useNavigate();
 
   const { loginUser } = useContext(AuthContext);
+
+  const from = location.state?.from?.pathname || "/";
+
   const handelLogin = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -20,7 +24,7 @@ const Login = () => {
         const user = result.user;
         console.log(user);
         setError("");
-        navigate("/");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         setError(error.message);
@@ -42,7 +46,9 @@ const Login = () => {
   return (
     <div className="flex justify-center">
       <div className="w-full max-w-md p-8 space-y-3 rounded-xl  border border-gray-400 mt-20 shadow-xl bg-gray-100">
-        <p className="text-center text-red-800 bg-red-200 rounded-full">{error}</p>
+        <p className="text-center text-red-800 bg-red-200 rounded-full">
+          {error}
+        </p>
         <h1 className="text-2xl font-bold text-center">Login</h1>
         <form
           onSubmit={handelLogin}

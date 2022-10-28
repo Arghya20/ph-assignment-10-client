@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 
 const Header = () => {
-  const { user,logOut  } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
 
   const handelLogout = () => {
     logOut()
-    .then(() => {})
-    .catch(error => console.log(error.massage))
-  }
+      .then(() => {})
+      .catch((error) => console.log(error.massage));
+  };
 
   const [isDark, setIsDark] = useState(false);
   const handelToggle = (event) => {
@@ -91,7 +91,7 @@ const Header = () => {
               <span className="ml-1">{isDark ? "Dark" : "Light"}</span>
             </label>
 
-            { user?.uid ? (
+            {user?.uid ? (
               <>
                 <li>
                   <div className="flex flex-col items-center justify-center">
@@ -99,12 +99,15 @@ const Header = () => {
                       <div className="relative flex-shrink-0">
                         {user?.photoURL ? (
                           <img
+                            title="name"
                             src={user?.photoURL}
                             alt="user"
                             className="w-12 h-12 border rounded-full dark:bg-gray-500 dark:border-gray-700"
                           />
                         ) : (
-                          <div className="text-4xl text-gray-500 -mr-"><FaUserCircle /> </div>
+                          <div className="text-4xl text-gray-500 -mr-">
+                            <FaUserCircle />{" "}
+                          </div>
                         )}
                       </div>
                     </div>
@@ -124,7 +127,7 @@ const Header = () => {
             ) : (
               <>
                 <li>
-                <Link
+                  <Link
                     to="/login"
                     className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide bg-black text-white transition duration-200 rounded-full shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
                     aria-label="Sign up"
@@ -135,8 +138,6 @@ const Header = () => {
                 </li>
               </>
             )}
-
-
           </ul>
           <div className="lg:hidden">
             <button
@@ -249,51 +250,52 @@ const Header = () => {
                         </span>
                       </label>
 
-                      { user?.uid ? (
-              <>
-                <li>
-                  <div className="flex flex-col items-center justify-center">
-                    <div className="flex flex-wrap gap-x-2 gap-y-2">
-                      <div className="relative flex-shrink-0">
-                        {user?.photoURL ? (
-                          <img
-                            src={user?.photoURL}
-                            alt="user"
-                            className="w-12 h-12 border rounded-full dark:bg-gray-500 dark:border-gray-700"
-                          />
-                        ) : (
-                          <div className="text-4xl text-gray-500 -mr-3"><FaUserCircle /> </div>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <button
-                    onClick={logOut}
-                    className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide bg-black text-white transition duration-200 rounded-full shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                    aria-label="Sign up"
-                    title="Sign up"
-                  >
-                    Log Out
-                  </button>
-                </li>
-              </>
-            ) : (
-              <>
-                <li>
-                <Link
-                    to="/login"
-                    className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide bg-black text-white transition duration-200 rounded-full shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                    aria-label="Sign up"
-                    title="Sign up"
-                  >
-                    Log In
-                  </Link>
-                </li>
-              </>
-            )}
-
+                      {user?.uid ? (
+                        <>
+                          <li>
+                            <div className="flex flex-col items-center justify-center">
+                              <div className="flex flex-wrap gap-x-2 gap-y-2">
+                                <div className="relative flex-shrink-0">
+                                  {user?.photoURL ? (
+                                    <img
+                                      src={user?.photoURL}
+                                      alt="user"
+                                      className="w-12 h-12 border rounded-full dark:bg-gray-500 dark:border-gray-700"
+                                    />
+                                  ) : (
+                                    <div className="text-4xl text-gray-500 -mr-3">
+                                      <FaUserCircle />{" "}
+                                    </div>
+                                  )}
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <button
+                              onClick={logOut}
+                              className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide bg-black text-white transition duration-200 rounded-full shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                              aria-label="Sign up"
+                              title="Sign up"
+                            >
+                              Log Out
+                            </button>
+                          </li>
+                        </>
+                      ) : (
+                        <>
+                          <li>
+                            <Link
+                              to="/login"
+                              className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide bg-black text-white transition duration-200 rounded-full shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                              aria-label="Sign up"
+                              title="Sign up"
+                            >
+                              Log In
+                            </Link>
+                          </li>
+                        </>
+                      )}
                     </ul>
                   </nav>
                 </div>

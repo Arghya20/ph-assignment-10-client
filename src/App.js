@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import Header from "./components/Header/Header";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -12,6 +11,7 @@ import Home from "./Home/Home";
 import Course from "./components/CourseHome/Course";
 import CourseDetails from "./components/CourseHome/CourseDetails";
 import PremiumAccess from "./components/PremiumAccess/PremiumAccess";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 function App() {
   const router = createBrowserRouter([
@@ -51,7 +51,11 @@ function App() {
         },
         {
           path: "/premiumAccess/:id",
-          element: <PremiumAccess></PremiumAccess>,
+          element: (
+            <PrivateRoute>
+              <PremiumAccess></PremiumAccess>
+            </PrivateRoute>
+          ),
           loader: ({ params }) =>
             fetch(`http://localhost:5000/coursedetails/${params.id}`),
         },
