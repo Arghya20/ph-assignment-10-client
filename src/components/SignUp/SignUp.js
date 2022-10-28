@@ -4,7 +4,7 @@ import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 
 const SignUp = () => {
   const [error, setError] = useState("");
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateUserProfile } = useContext(AuthContext);
 
   const handelSubmit = (event) => {
     event.preventDefault();
@@ -17,13 +17,26 @@ const SignUp = () => {
     createUser(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        // console.log(user);
         setError("");
+        handelUpdateUserProfile(name, photourl)
+          .then(() => {})
+          .catch((error) => {
+            setError(error.message);
+          });
       })
       .catch((error) => {
         setError(error.message);
       });
   };
+  const handelUpdateUserProfile = (name, photourl) => {
+    const profile = {
+      displayName: name,
+      photoURL: photourl,
+    };
+    updateUserProfile(profile);
+  };
+
   return (
     <div className="flex justify-center">
       <div className="w-full max-w-md p-8 space-y-3 rounded-xl  border border-gray-400 mt-20 shadow-xl bg-gray-100">
