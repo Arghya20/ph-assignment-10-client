@@ -6,7 +6,7 @@ import Course from "./Course";
 const CourseHome = () => {
   const [user, setUser] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/data")
+    fetch("https://server-site-jade.vercel.app/data")
       .then((res) => res.json())
       .then((data) => setUser(data));
   }, []);
@@ -18,7 +18,7 @@ const CourseHome = () => {
           <div className="mb-6 lg:mb-0 lg:w-1/2 lg:pr-5 ">
             {user.map((usr) => (
               <Link
-              key={usr.id}
+                key={usr.id}
                 to={`/coursedetails/${usr.id}`}
                 usr={usr.id}
                 className="border border-gray-300 hover:text-white hover:bg-sky-600  p-3 m-4 rounded-lg block shadow-lg"

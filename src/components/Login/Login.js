@@ -1,4 +1,4 @@
-import { GoogleAuthProvider } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import React, { useContext, useState } from "react";
 import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
@@ -33,8 +33,20 @@ const Login = () => {
 
   const { providerLogin } = useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
+
   const handelGoogleLogin = () => {
     providerLogin(googleProvider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
+  };
+  const handelGithub = () => {
+    providerLogin(githubProvider)
       .then((result) => {
         const user = result.user;
         console.log(user);
@@ -108,6 +120,7 @@ const Login = () => {
           </button>
 
           <button
+          onClick={handelGithub}
             aria-label="Log in with GitHub"
             className="p-3  rounded-full bg-white shadow"
           >

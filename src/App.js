@@ -47,7 +47,9 @@ function App() {
           path: "/coursedetails/:id",
           element: <CourseDetails></CourseDetails>,
           loader: ({ params }) =>
-            fetch(`http://localhost:5000/coursedetails/${params.id}`),
+            fetch(
+              `https://server-site-jade.vercel.app/coursedetails/${params.id}`
+            ),
         },
         {
           path: "/premiumAccess/:id",
@@ -57,7 +59,9 @@ function App() {
             </PrivateRoute>
           ),
           loader: ({ params }) =>
-            fetch(`http://localhost:5000/coursedetails/${params.id}`),
+            fetch(
+              `https://server-site-jade.vercel.app/coursedetails/${params.id}`
+            ),
         },
       ],
     },
