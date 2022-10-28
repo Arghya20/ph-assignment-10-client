@@ -1,12 +1,31 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 
 const SignUp = () => {
+  const { createUser } = useContext(AuthContext);
+
+  const handelSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const photourl = form.photourl.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(name, photourl, email, password);
+    createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => console.log(error.massage));
+  };
   return (
     <div className="flex justify-center">
       <div className="w-full max-w-md p-8 space-y-3 rounded-xl  border border-gray-400 mt-20 shadow-xl bg-gray-100">
         <h1 className="text-2xl font-bold text-center">Sign Up</h1>
         <form
+          onSubmit={handelSubmit}
           novalidate=""
           action=""
           className="space-y-6 ng-untouched ng-pristine ng-valid"
