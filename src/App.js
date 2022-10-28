@@ -45,6 +45,8 @@ function App() {
         {
           path: "/coursedetails/:id",
           element: <CourseDetails></CourseDetails>,
+          loader: ({ params }) =>
+            fetch(`http://localhost:5000/coursedetails/${params.id}`),
         },
       ],
     },
