@@ -50,8 +50,10 @@ function App() {
             fetch(`http://localhost:5000/coursedetails/${params.id}`),
         },
         {
-          path: "/premiumAccess",
+          path: "/premiumAccess/:id",
           element: <PremiumAccess></PremiumAccess>,
+          loader: ({ params }) =>
+            fetch(`http://localhost:5000/coursedetails/${params.id}`),
         },
       ],
     },

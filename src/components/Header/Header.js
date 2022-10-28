@@ -31,6 +31,9 @@ const Header = () => {
           </Link>
           <ul className="flex items-center hidden space-x-8 lg:flex">
             <li>
+              {user?.displayName}
+            </li>
+            <li>
               <Link
                 to="/coursehome"
                 aria-label="Our product"

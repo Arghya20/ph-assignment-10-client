@@ -11,7 +11,7 @@ const ref = React.createRef();
 
 const CourseDetails = () => {
   const coursedetails = useLoaderData();
-  const { title, dec, details, ratings, students, img } = coursedetails;
+  const { id, title, dec, details, ratings, students, img } = coursedetails;
 
   return (
     <div className="m-2">
@@ -59,7 +59,7 @@ const CourseDetails = () => {
           </div>
         </div>
         <div className="flex justify-center mt-6 mb-8">
-          <Link to="/premiumAccess">
+          <Link to={`/premiumAccess/${id}`}>
             <button
               type="button"
               className="flex items-center gap-x-2  px-8 py-3 font-semibold rounded-full bg-yellow-500 hover:bg-yellow-600 shadow-lg border border-gray-400"
