@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 
 const Header = () => {
+  const { user } = useContext(AuthContext);
+
   const [isDark, setIsDark] = useState(false);
   const handelToggle = (event) => {
     setIsDark(event.target.checked);
@@ -79,9 +82,8 @@ const Header = () => {
               <div className="flex flex-col items-center justify-center">
                 <div className="flex flex-wrap gap-x-2 gap-y-2">
                   <div className="relative flex-shrink-0">
-                    <span className="absolute bottom-0 right-0 w-4 h-4 dark:bg-green-600 border rounded-full dark:text-gray-100 dark:border-gray-900"></span>
                     <img
-                      src="https://source.unsplash.com/50x50/?portrait"
+                      src="https://randykepple.com/wp19/wp-content/uploads/2021/12/avatar_icon.png"
                       alt=""
                       className="w-12 h-12 border rounded-full dark:bg-gray-500 dark:border-gray-700"
                     />
@@ -215,9 +217,8 @@ const Header = () => {
                         <div className="flex flex-col items-center justify-center">
                           <div className="flex flex-wrap gap-x-2 gap-y-2">
                             <div className="relative flex-shrink-0">
-                              <span className="absolute bottom-0 right-0 w-4 h-4 dark:bg-green-600 border rounded-full dark:text-gray-100 dark:border-gray-900"></span>
                               <img
-                                src="https://source.unsplash.com/50x50/?portrait"
+                                src="https://randykepple.com/wp19/wp-content/uploads/2021/12/avatar_icon.png"
                                 alt=""
                                 className="w-12 h-12 border rounded-full dark:bg-gray-500 dark:border-gray-700"
                               />
@@ -225,6 +226,7 @@ const Header = () => {
                           </div>
                         </div>
                       </li>
+
                       <li>
                         <Link
                           to="/login"
